@@ -139,7 +139,6 @@
     <ClCompile Include="CardShuffler.cpp" />
     <ClCompile Include="Dealer.cpp" />
     <ClCompile Include="Hand.cpp" />
-    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
