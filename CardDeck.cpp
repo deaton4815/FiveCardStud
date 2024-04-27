@@ -1,7 +1,24 @@
 #include "CardDeck.h"
 
+using namespace std;
+
 CardDeck::CardDeck() {
 	initializeDeck();
+}
+
+vector<Card> CardDeck::getCards(const size_t count) {
+
+	vector<Card>::const_iterator takeFirst = m_deck.begin();
+	vector<Card>::const_iterator takeLast = m_deck.begin() + count;
+
+	vector<Card> taken(takeFirst, takeLast);
+	m_deck.erase(takeFirst, takeLast);
+	
+	return taken;
+}
+
+void CardDeck::addCards(const vector<Card>& newCards) {
+	m_deck.insert(m_deck.end(), newCards.begin(), newCards.end());
 }
 
 void CardDeck::shuffleDeck() {
@@ -28,7 +45,7 @@ Card CardDeck::newCard(char suit, unsigned int rank) const {
 
 
 void CardDeck::printDeck() {
-	std::vector<Card>tempDeck{ m_deck };
+	vector<Card>tempDeck{ m_deck };
 
 	char suit;
 	unsigned rank;
@@ -37,8 +54,8 @@ void CardDeck::printDeck() {
 		suit = card->getSuit();
 		rank = card->getRank();
 
-		std::cout << suit << rank << std::endl;
+		cout << suit << rank << endl;
 
 	}
-	std::cout << "------------------------------------------------------------------" << std::endl;
+	cout << "------------------------------------------------------------------" << std::endl;
 }

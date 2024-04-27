@@ -17,6 +17,8 @@ public:
 
 	CardDeck();
 
+	std::vector<Card> getCards(const size_t);
+	void addCards(const std::vector<Card>&);
 	void shuffleDeck();
 
 	//TEST FUNCTION

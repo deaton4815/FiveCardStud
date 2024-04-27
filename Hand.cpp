@@ -21,7 +21,6 @@ void Hand::resetHand() {
 	m_discards.clear();
 }
 
-const size_t Hand::getHandSize() const { return m_handSize; }
 size_t Hand::getDiscardCount() const { return m_discardIndices.size(); }
 
 vector<Card> Hand::getAllCards() const {
@@ -47,7 +46,7 @@ void Hand::setDiscardedCards() {
 bool Hand::isKeeper(const unsigned i, const vector<unsigned>& keeps) const {
 	bool isKeeper{ false };
 	for (size_t j{ 0 }; j < keeps.size(); ++j) {
-		if (i == j) {
+		if (i == keeps.at(j)) {
 			isKeeper = true;
 			break;
 		}
